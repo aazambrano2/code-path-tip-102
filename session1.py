@@ -636,3 +636,50 @@ get_odds(nums)
 nums = [2, 4, 6, 8]
 get_odds(nums)
 
+
+"""
+Problem 10: Up and Down
+Write a function up_and_down() that accepts a list of integers lst as a parameter.
+The function should return the number of odd numbers minus the number of even numbers in the list.
+
+def up_and_down(lst):
+	pass
+Example Usage
+
+lst = [1, 2, 3]
+up_and_down(lst)
+
+lst = [1, 3, 5]
+up_and_down(lst)
+
+lst = [2, 4, 10, 2]
+up_and_down(lst)
+Example Output:
+
+1
+3
+-4
+"""
+
+def up_and_down(lst):
+
+    # odd = len([n for n in lst if n % 2 != 0])
+    # even = len([n for n in lst if n % 2 == 0])
+
+    odd = 0
+    even = 0
+
+    for n in lst:
+        if n % 2 != 0: odd += 1
+        else: even += 1
+    print(odd-even)
+    return odd - even
+
+lst = [1, 2, 3]
+up_and_down(lst)
+
+lst = [1, 3, 5]
+up_and_down(lst)
+
+lst = [2, 4, 10, 2]
+up_and_down(lst)
