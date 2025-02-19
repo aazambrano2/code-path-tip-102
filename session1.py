@@ -38,3 +38,83 @@ def greeting(name):
     print("Welcome to the Hundred Acre Wood " + name + " My name is Christopher Robin")
 
 greeting("Michael")
+
+
+'''
+Write a function print_todo_list() that accepts a list of strings named tasks. The function should then number and print each task on a new line using the format:
+
+Pooh's To Dos:
+1. Task 1
+2. Task 2
+...
+
+def print_todo_list(task):
+	pass
+Example Usage
+
+task = ["Count all the bees in the hive", "Chase all the clouds from the sky", "Think", "Stoutness Exercises"]
+print_todo_list(task)
+
+task = []
+print_todo_list(task)
+Example Output:
+
+Pooh's To Dos:
+1. Count all the bees in the hive
+2. Chase all the clouds from the sky
+3. Think
+4. Stoutness Exercises
+
+Pooh's To Dos:
+'''
+
+def print_todo_list(task):
+
+    print("Pooh's to Dos:")
+
+    for index, statement in enumerate(task):
+        print(f"{index + 1}." + statement)
+
+task = ["Count all the bees in the hive", "Chase all the clouds from the sky", "Think", "Stoutness Exercises"]
+print_todo_list(task)
+
+'''
+Winnie the Pooh and his friends are playing a game called Poohsticks where they drop sticks in a stream and race them. They time how long it takes each player's stick to float under Poohsticks Bridge to score each round.
+
+Write a function count_less_than() to help Pooh and his friends determine how many players should move on to the next round of Poohsticks. count_less_than() should accept a list of integers race_times and an integer threshold and return the number of race times less than threshold.
+
+def count_less_than(race_times, threshold):
+	pass
+Example Usage
+
+race_times = [1, 2, 3, 4, 5, 6]
+threshold = 4
+count_less_than(race_times, threshold)
+
+race_times = []
+threshold = 4
+count_less_than(race_times, threshold)
+Example Output:
+
+3
+0
+'''
+
+def count_less_than(race_times, threshold):
+    count = 0
+
+    for time in race_times:
+        if time < threshold:
+            count += 1  
+    print(count)      
+    return count
+
+race_times = [1, 2, 3, 4, 5, 6]
+threshold = 4
+count_less_than(race_times, threshold)
+
+race_times = []
+threshold = 4
+count_less_than(race_times, threshold)
+
+
