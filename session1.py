@@ -518,3 +518,56 @@ concatenate(words)
 words = []
 concatenate(words)
 
+"""
+Problem 6: Squared
+Write a function squared() that accepts a list of integers numbers as a parameter and squares each item in the list. Return the squared list.
+
+def squared(numbers):
+	pass
+Example Usage
+
+numbers = [1, 2, 3]
+squared(numbers)
+Example Output:
+
+[1, 4, 9]
+"""
+
+def squared(numbers):
+
+    numbers = [n** 2 for n in numbers]
+    return numbers
+
+numbers = [1, 2, 3]
+print(squared(numbers))
+
+"""
+Problem 7: NaNaNa Batman!
+Write a function nanana_batman() that accepts an integer x and prints the string "nanana batman!" where "na" is repeated x times. Do not use the * operator.
+
+def nanana_batman(x):
+	pass
+Example Usage
+
+x = 6
+nanana_batman(x)
+
+x = 0
+nanana_batman(x)
+Example Output:
+
+"nananananana batman!"
+"batman!"
+"""
+
+def nanana_batman(x):
+
+    for i in range(1, x + 1):
+        print("na",end= "")
+    print(" batman!")
+    #print("na" * x + " batman!")
+x = 6
+nanana_batman(x)
+
+x = 0
+nanana_batman(x)
