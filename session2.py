@@ -252,3 +252,147 @@ print(squash_spaces(s))
 
 s = "With great power comes great responsibility."
 print(squash_spaces(s))
+
+
+"""
+Problem 4: Two-Pointer Two Sum
+Use the two pointer approach to implement a function two_sum() 
+that takes in a sorted list of integers nums and an integer target as parameters 
+and returns the indices of the two numbers that add up to target. 
+You may assume that each input would have exactly one solution, 
+and you may not use the same element twice. You can return the indices in any order.
+
+def two_sum(nums, target):
+    pass
+Example Usage
+
+nums = [2, 7, 11, 15]
+target = 9
+two_sum(nums, target)
+
+nums = [2, 7, 11, 15]
+target = 18
+two_sum(nums, target)
+Example Output:
+
+[0, 1]
+[1, 2]
+"""
+
+def two_sum(nums, target):
+
+    left = 0
+    right = len(nums) - 1
+    index = []
+    while left < len(nums):
+        if nums[left] + nums[right] == target:
+            index =  [left,right]
+            break
+        elif nums[left] + nums[right] < target:
+            left += 1
+        else:
+            right -= 1
+    return index
+
+nums = [2, 7, 11, 15]
+target = 9
+print(two_sum(nums, target))
+
+nums = [2, 7, 11, 15]
+target = 18
+print(two_sum(nums, target))
+
+"""
+Problem 5: Three Sum
+Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] 
+such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+
+Notice that the solution set must not contain duplicate triplets.
+
+def three_sum(nums):
+    pass
+Example Usage
+
+nums = [-1, 0, 1, 2, -1, -4]
+three_sum(nums)
+
+nums = [0, 1, 1]
+three_sum(nums)
+
+nums = [0, 0, 0]
+three_sum(nums)
+Example Output:
+
+[[-1, -1, 2], [-1, 0, 1]]
+[]
+[[0, 0, 0]]
+💡Hint: Sorting Lists
+"""
+
+def three_sum(nums):
+    nums.sort()
+    answer = []
+    
+    for i in range(len(nums) - 2):
+        if i > 0 and nums[i] == nums[i - 1]:  # Skip duplicates
+            continue
+        
+        j, k = i + 1, len(nums) - 1
+        while j < k:
+            total = nums[i] + nums[j] + nums[k]
+            if total == 0:
+                answer.append([nums[i], nums[j], nums[k]])
+                j += 1
+                k -= 1
+                
+                while j < k and nums[j] == nums[j - 1]:  # Skip duplicates
+                    j += 1
+                while j < k and nums[k] == nums[k + 1]:  # Skip duplicates
+                    k -= 1
+            
+            elif total < 0:
+                j += 1
+            else:
+                k -= 1
+
+    return answer
+
+
+nums = [-1, 0, 1, 2, -1, -4]
+print(three_sum(nums))
+
+nums = [0, 1, 1]
+print(three_sum(nums))
+
+nums = [0, 0, 0]
+print(three_sum(nums))
+
+
+
+"""
+Problem 6: Insert Interval
+Implement a function insert_interval() that accepts an array of non-overlapping intervals intervals where intervals[i] = [starti, endi] represent the start and the end of the ith interval and intervals is sorted in ascending order by starti. The function also accepts an interval new_interval = [start, end] that represents the start and end of another interval.
+
+Insert new_interval into intervals such that intervals is still sorted in ascending order by starti and intervals still does not have any overlapping intervals (merge overlapping intervals if necessary).
+
+Return intervals after the insertion.
+
+You don't need to modify intervals in-place. You can make a new array and return it.
+
+def insert_interval(intervals, new_interval):
+    pass
+Example Usage
+
+intervals = [[1, 3], [6, 9]]
+new_interval = [2, 5]
+insert_interval(intervals, new_interval)
+
+intervals = [[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]]
+new_interval = [4, 8]
+insert_interval(intervals, new_interval)
+Example Output:
+
+[[1, 5], [6, 9]]
+[[1, 2], [3, 10], [12, 16]]
+
+"""
