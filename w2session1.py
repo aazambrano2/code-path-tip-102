@@ -182,4 +182,79 @@ k3 = 2
 
 print(detect_temporal_anomaly(time_points1, k1))  
 print(detect_temporal_anomaly(time_points2, k2)) 
-print(detect_temporal_anomaly(time_points3, k3)) 
+print(detect_temporal_anomaly(time_points3, k3))
+
+
+"""
+
+Problem 6: Find Travelers with Zero or One Temporal Anomalies
+In your time travel adventures, you are given an integer array anomalies where anomalies[i] = [traveleri, anomalyi] indicates that the traveler traveleri caused a temporal anomaly anomalyi.
+
+Return a list answer of size 2 where:
+
+answer[0] is a list of all travelers that have not caused any anomalies.
+answer[1] is a list of all travelers that have caused exactly one anomaly.
+The values in the two lists should be returned in increasing order.
+
+Note: You should only consider the travelers that have experienced at least one anomaly.
+
+def find_travelers(anomalies):
+    pass
+Example Usage:
+
+anomalies1 = [[1,3],[2,3],[3,6],[5,6],[5,7],[4,5],[4,8],[4,9],[10,4],[10,9]]
+anomalies2 = [[2,3],[1,3],[5,4],[6,4]]
+
+print(find_travelers(anomalies1)) 
+print(find_travelers(anomalies2))
+Example Output:
+
+[[1, 2, 10], [4, 5, 7, 8]]
+[[1, 2, 5, 6], []]
+
+"""
+
+def find_travelers(anomalies):
+
+    #two lists
+    list1 = []
+    list2 = []
+
+    tracker = {}
+    travelers = set()
+
+    for anomaly, traveler in anomalies:
+        travelers.add(traveler)
+        travelers.add(anomaly)
+        tracker[traveler] = tracker.get(traveler,0) + 1
+
+    for traveler in sorted(travelers):
+
+        if traveler not in tracker:
+            list1.append(traveler)
+        elif tracker[traveler] == 1:
+            list2.append(traveler)
+        
+
+    return [list1, list2]
+        
+        
+
+
+        
+
+    #if traveler is in index 0: list 1
+    #if traveler is in index 1 at least once: list 2
+    #if anomalyi is in index 2 at least once: list 2
+
+
+
+
+    pass
+
+
+anomalies1 = [[1,3],[2,3],[3,6],[5,6],[5,7],[4,5],[4,8],[4,9],[10,4],[10,9]]
+anomalies2 = [[2,3],[1,3],[5,4],[6,4]]
+
+print(find_travelers(anomalies1)) 
+print(find_travelers(anomalies2))
