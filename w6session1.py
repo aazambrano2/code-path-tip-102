@@ -94,6 +94,10 @@ def get_artists_frequency(playlist):
         add key value to 1 where are key is the artists name
 
         return dictionary
+    i
+    r: T: O(n)
+    S: O(n)
+    e:
     """
 
     frequency = defaultdict(int)
@@ -108,18 +112,6 @@ def get_artists_frequency(playlist):
     
     return frequency
     
-# def get_artist_frequency(playlist):
-#     if not playlist:
-#         return {}
-
-#     frequency = defaultdict(int)  # Default value for frequencies is 0
-#     current = playlist
-#     while current:
-#         frequency[current.artist] += 1  # Increment artist frequency count
-#         current = current.next
-
-#     return frequency
-
 
 playlist = SongNode("Saturn", "SZA", 
                 SongNode("Who", "Jimin", 
@@ -129,4 +121,6 @@ playlist = SongNode("Saturn", "SZA",
 get_artists_frequency(playlist)
 
 print(get_artists_frequency(playlist))
+
+
 

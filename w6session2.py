@@ -91,7 +91,9 @@ def is_circular(head):
 # c1 -> c2 -> c3 -> c1
 #                   s
 #                   f
-
+#E:
+#T O(n)
+#S O(1)
 clue1 = Node("The stolen goods are at an abandoned warehouse")
 clue2 = Node("The mayor is accepting bribes")
 clue3 = Node("They dumped their disguise in the lake")
