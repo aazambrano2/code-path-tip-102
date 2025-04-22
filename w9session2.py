@@ -35,8 +35,8 @@ class Solution(object):
         #I #R
 
         #E
-        #Time Complexity: O(Log(N)) / or O(N)
-        #Space Complexity: O(N)
+        #Time Complexity: O(N)
+        #Space Complexity: O(H)
 
         if not p and not q:
             return True
